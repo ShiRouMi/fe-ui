@@ -21,9 +21,11 @@
 </template>
 
 <script>
+import emitter from '../../mixins/emitter.js'
 export default {
   name: 'FeRadio',
   componentName: 'FeRadio',
+  mixins: [emitter],
   props: {
     value: {},
     label: [String, Number, Boolean],
@@ -32,19 +34,14 @@ export default {
     size: String,
     name: String
   },
-  data: function () {
-    return {
-      radioGroup: null
-    } 
-  },
   computed: {
     isGroup: function () {
       let parent = this.$parent
-      while(this.$parent) {
+      while(parent) {
         if(parent.$options.componentName !== 'FeRadioGroup') {
           parent = parent.$parent
         } else {
-          this.radioGroup = parent
+          this._radioGroup = parent
           return true
         }
       }
@@ -59,12 +56,12 @@ export default {
       get() {
         // 这里为什么不能是 this.label
         return this.isGroup 
-          ? this.radioGroup.value 
+          ? this._radioGroup.value 
           : this.value
       },
       set(val) {
         if (this.isGroup) {
-          // this.radioGroup.$emit('input', val)
+          this.dispatch('FeRadioGroup', 'input', val)
         } else {
           this.$emit('input', val)
         }
@@ -75,9 +72,12 @@ export default {
     }
   },
   methods: {
-    change: function() {
-
-    }
+    // handleChange: function() {
+    //   this.$nextTick(() => {
+    //     this.$emit('change', this.model)
+    //     this.isGroup && this.dispatch('FeRadioGroup', 'handleChange', this.model)
+    //   })
+    // }
   }
 }
 </script>

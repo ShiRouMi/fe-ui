@@ -9,6 +9,7 @@ export default {
   name: 'FeRadioGroup',
   componentName: 'FeRadioGroup',
   props: {
+    value: {}, // 天哪，这行代码太重要了
     size: String,
     disabled: Boolean,
     textColor: {
@@ -20,10 +21,10 @@ export default {
       default: '#409EFF'
     }
   },
-  methods: {
-    change: function() {
-
-    }
+  create () {
+    // this.$on('handleChange', value => {
+    //   this.$emit('change', value)
+    // })
   }
 }
 </script>
