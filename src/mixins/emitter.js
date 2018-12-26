@@ -7,7 +7,9 @@ export default {
         parent = parent.$parent;
         name = parent.$options.name;
       }
-      parent.$emit.apply(parent, [eventName].concat(params));
+      // parent.$emit.apply(parent, [eventName].concat(params));
+      parent.$emit(eventName, params)
+      // 这里的话应该不用apply吧？？
     }
   }
 };

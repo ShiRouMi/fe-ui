@@ -11,6 +11,7 @@
       :disabled="isDisabled"
       :value="label"
       v-model="model"
+      @change="handleChange"
     />
     </span>
     <span class="fe-radio__span"
@@ -41,7 +42,7 @@ export default {
         if(parent.$options.componentName !== 'FeRadioGroup') {
           parent = parent.$parent
         } else {
-          this._radioGroup = parent
+          this._radioGroup = parent // 这个数据不在data里定义可以吗？
           return true
         }
       }
@@ -72,12 +73,12 @@ export default {
     }
   },
   methods: {
-    // handleChange: function() {
-    //   this.$nextTick(() => {
-    //     this.$emit('change', this.model)
-    //     this.isGroup && this.dispatch('FeRadioGroup', 'handleChange', this.model)
-    //   })
-    // }
+    handleChange: function() {
+      this.$nextTick(() => {
+        this.$emit('change', this.model)
+        this.isGroup && this.dispatch('FeRadioGroup', 'handleChange', this.model)
+      })
+    }
   }
 }
 </script>

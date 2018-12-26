@@ -21,10 +21,11 @@ export default {
       default: '#409EFF'
     }
   },
-  create () {
-    // this.$on('handleChange', value => {
-    //   this.$emit('change', value)
-    // })
+  created () {
+    // 在created的时候监听
+    this.$on('handleChange', val => {
+      this.$emit('change', val)
+    })
   }
 }
 </script>
