@@ -12,5 +12,6 @@ export default {
 </script>
 
 <style>
-
+@import '../Style/icon.scss';
+.fe-icon-info:before { content: "\e61a"; }
 </style>
