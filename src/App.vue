@@ -1,40 +1,22 @@
 <template>
   <div id="app">
-    <fe-radio v-model="radio" label="123">备选项1</fe-radio>
-    <fe-radio v-model="radio" label="456">备选项2</fe-radio>
-    <fe-radio v-model="radio" label="789">备选项3</fe-radio>
-    <fe-radio v-model="radio1" disabled label="选中且禁用">备选项4</fe-radio>
-    <fe-radio v-model="radio2" label="000" border size="medium">备选项5</fe-radio>
-    <fe-radio v-model="radio2" label="111" border size="small">备选项6</fe-radio>
-    <fe-radio v-model="radio2" label="222" border size="mini">备选项7</fe-radio>
-    <fe-radio-group v-model="radio2" @change="clickRadioGroup">
-      <fe-radio :label="1">组合1</fe-radio>
-      <fe-radio :label="2">组合2</fe-radio>
-      <fe-radio :label="3">组合3</fe-radio>
-    </fe-radio-group>
+    <fe-input placeholder="请输入" v-model="iptValue" disabled></fe-input>
   </div>
 </template>
 
 <script>
-import FeRadio from './components/Radio'
-import FeRadioGroup from './components/RadioGroup'
+import FeInput from './components/Input'
 export default {
   name: 'app',
   components: {
-    FeRadio,
-    FeRadioGroup
+    FeInput
   },
   data: function () {
     return {
-      radio: '123',
-      radio1: '选中且禁用',
-      radio2: 222
+      iptValue: 'test'
     }
   },
   methods: {
-    clickRadioGroup(val) {
-      console.log(val)
-    }
   }
 }
 </script>
