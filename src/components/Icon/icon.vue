@@ -1,5 +1,5 @@
 <template>
-  <i :class="`fe-icon-${name}`"></i>
+  <i :class="`${name}`"></i>
 </template>
 
 <script>
