@@ -1,7 +1,19 @@
 <template>
   <div id="app">
     <fe-switch
-      v-model="value2" @change="switchChange">
+      v-model="value2"
+      width="100"
+      active-text="按月付费"
+      inactive-text="按年付费" 
+      @change="switchChange">
+    </fe-switch>
+    <fe-switch
+      style="display: block"
+      v-model="value4"
+      active-color="#13ce66"
+      inactive-color="#ff4949"
+      active-text="按月付费"
+      inactive-text="按年付费">
     </fe-switch>
   </div>
 </template>
@@ -18,7 +30,8 @@ export default {
   },
   data: function () {
     return {
-      value2: true 
+      value2: true,
+      value4: false
     }
   },
   methods: {
