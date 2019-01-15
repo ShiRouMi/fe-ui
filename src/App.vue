@@ -1,22 +1,29 @@
 <template>
   <div id="app">
-    <fe-input placeholder="请输入" v-model="iptValue" disabled></fe-input>
+    <fe-switch
+      v-model="value2" @change="switchChange">
+    </fe-switch>
   </div>
 </template>
 
 <script>
-import FeInput from './components/Input'
+import FeIcon from './components/Icon'
+import FeButton from './components/Button'
+import TogglePanel from './arrange/show&if'
+import FeSwitch from './components/Switch'
 export default {
   name: 'app',
   components: {
-    FeInput
+    FeSwitch
   },
   data: function () {
     return {
-      iptValue: 'test'
+      value2: true 
     }
   },
   methods: {
+    switchChange(val) {
+    }
   }
 }
 </script>
