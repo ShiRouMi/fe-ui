@@ -1,19 +1,20 @@
 <template>
   <button type="button" class="fe-button"
-    :disabled="disabled"
+    :disabled="buttonDisabled"
     @click="onClick"
     :class="[
       size ? `fe-button--${ size }` : '',
       type ? `fe-button--${ type }` : '',
       {
-        'is-disabled': disabled,
+        'is-disabled': buttonDisabled,
         'is-round': round,
         'is-plain': plain,
         'is-circle': circle
       }
     ]"
   >
-    <fe-icon v-if="icon" :name="icon"></fe-icon>
+    <fe-icon v-if="icon" :name="converseIcon"></fe-icon>
+    <fe-icon v-if="loading" name="loading"></fe-icon>
     <span>
       <slot></slot>
     </span>
@@ -37,10 +38,19 @@ export default {
     disabled: Boolean,
     icon: String,
     autofocus: Boolean,
-    nativeType: String
+    nativeType: String,
+    icon: String
   },
   components: {
     FeIcon
+  },
+  computed: {
+    converseIcon() {
+      return this.icon.replace('el-icon-', '')
+    },
+    buttonDisabled() {
+      return this.disabled || this.loading
+    }
   },
   methods: {
     onClick: function (evt) {
@@ -51,13 +61,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../Style/color.scss';
+@import '../../assets/style/color.scss';
 .fe-button {
   cursor: pointer;
   font-size: 14px;
-  line-height: 22px;
-  height: 32px;
-  padding: 0 12px;
+  padding: 12px 24px;
   color: $main;
   border-radius: 4px;
   background: #fff;
@@ -69,9 +77,49 @@ export default {
   user-select: none;
   position: relative;
 
+  &.is-round {
+    border-radius: 20px;
+    padding: 12px 23px;
+  }
+
   &.is-circle {
     border-radius: 50%;
     padding: 12px;
+  }
+
+  &--medium {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+
+    &.is-round {
+      border-radius: 20px;
+      padding: 12px 23px;
+    }
+  }
+
+  &--small {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+
+    &.is-round {
+      padding: 9px 15px;
+    }
+  }
+
+  &--mini {
+    padding: 7px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+
+    &.is-round {
+      padding: 7px 15px;
+    }
+  }
+
+  & [class*=fe-icon-]+span {
+      margin-left: 5px;
   }
 
   &.is-disabled {
@@ -122,4 +170,5 @@ export default {
     }
   }
 }
+
 </style>

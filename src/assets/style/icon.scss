@@ -1,8 +1,8 @@
 
 @font-face {
   font-family: 'fe-icons';
-  src: url('../../fonts/element-icons.woff') format('woff'), /* chrome, firefox */
-       url('../../fonts/element-icons.ttf') format('truetype'); 
+  src: url('../fonts/element-icons.woff') format('woff'), /* chrome, firefox */
+       url('../fonts/element-icons.ttf') format('truetype'); 
 }
 [class^="fe-icon-"], [class*=" fe-icon-"] {
   font-family: 'fe-icons';
@@ -155,4 +155,13 @@
 }
 .fe-icon--left {
   margin-right: 5px;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
 }

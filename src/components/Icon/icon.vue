@@ -1,5 +1,5 @@
 <template>
-  <i :class="`${name}`"></i>
+  <i :class="`fe-icon-${name}`"></i>
 </template>
 
 <script>
@@ -12,6 +12,6 @@ export default {
 </script>
 
 <style>
-@import '../Style/icon.scss';
+@import '../../assets/style/icon.scss';
 .fe-icon-info:before { content: "\e61a"; }
 </style>

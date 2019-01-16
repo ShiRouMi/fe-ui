@@ -1,32 +1,17 @@
 <template>
   <div id="app">
-    <fe-switch
-      v-model="value2"
-      width="100"
-      active-text="按月付费"
-      inactive-text="按年付费" 
-      @change="switchChange">
-    </fe-switch>
-    <fe-switch
-      style="display: block"
-      v-model="value4"
-      active-color="#13ce66"
-      inactive-color="#ff4949"
-      active-text="按月付费"
-      inactive-text="按年付费">
-    </fe-switch>
+    <fe-button type="primary" size="medium">中</fe-button>
+    <fe-button type="primary" size="small">小</fe-button>
+    <fe-button type="primary" size="mini" round>超小</fe-button>
   </div>
 </template>
 
 <script>
-import FeIcon from './components/Icon'
 import FeButton from './components/Button'
-import TogglePanel from './arrange/show&if'
-import FeSwitch from './components/Switch'
 export default {
   name: 'app',
   components: {
-    FeSwitch
+    FeButton
   },
   data: function () {
     return {
@@ -35,7 +20,7 @@ export default {
     }
   },
   methods: {
-    switchChange(val) {
+    switchChange() {
     }
   }
 }

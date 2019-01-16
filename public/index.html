@@ -11,7 +11,15 @@
     <noscript>
       <strong>We're sorry but fe-ui doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <fe-switch v-model="value2" width="100" active-text="按月付费" inactive-text="按年付费" @change="switchChange">
+      </fe-switch>
+      <fe-switch style="display: block" v-model="value4" active-color="#13ce66" inactive-color="#ff4949" active-text="按月付费"
+        inactive-text="按年付费">
+      </fe-switch>
+    </div>
     <!-- built files will be auto injected -->
+    <script>
+    </script>
   </body>
 </html>

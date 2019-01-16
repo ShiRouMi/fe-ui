@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'fe-switch',
+  name: 'FeSwitch',
 
   data: function(){
     return {
@@ -47,7 +47,7 @@ export default {
 
   props: {
     disabled: Boolean,
-    value: '',  // 这行代码！！！
+    value: [String, Number, Boolean],
     width: {
       default: 40,
       type: Number
