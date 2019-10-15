@@ -1,7 +1,3 @@
-<template>
-  
-</template>
-
 <script>
 export default {
   name: 'FePagination',
@@ -33,10 +29,9 @@ export default {
     prevText: String,
     nextText: String,
     disabled: Boolean
+  },
+  render: function(h) {
+    
   }
 }
 </script>
-
-<style>
-
-</style>

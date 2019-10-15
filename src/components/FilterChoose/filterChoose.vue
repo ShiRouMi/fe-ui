@@ -70,8 +70,7 @@ export default {
       list.activeIndex = idx
       // 如果选中的是当前行的「不限」字段，那么删除这一行的数据
       if (idx === 0) {
-        let target = Array.of(list.title, child)
-        this.selectedData.delete(list.title) // TODO: 这里有问题
+        this.selectedData.delete(list.title)
       } else {
         this.selectedData.set(list.title, child)
       }

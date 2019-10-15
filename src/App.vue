@@ -1,18 +1,15 @@
 <template>
-  <div id="app">
-    <filterChoose></filterChoose>
-  </div>
+  <div id="app"></div>
 </template>
 
 <script>
-  import filterChoose from './components/FilterChoose'
   export default {
     data() {
       return {
       };
     },
     components: {
-      filterChoose
+      
     },
     methods: {
     }
