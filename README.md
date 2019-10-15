@@ -1,11 +1,12 @@
 # srm-ui
 
 组件
+- [x] Pagination ----- other's
 - [x] UploadExcel ----- other's
 - [x] SvgIcon ----- other's
 - [x] MarddownEditor ----- other's
 - [x] Tinymce  ----- other's
-- [x] FilterChoose
+- [x] FilterChoose
 - [x] Icon
 - [x] Radio
 - [x] Switch
