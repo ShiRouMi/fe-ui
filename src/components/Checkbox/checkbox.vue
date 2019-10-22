@@ -1,5 +1,5 @@
 <template>
-  <label>
+  <label class="fe-checkbox">
     <span 
       class="checkbox__input"
       :class="{
@@ -14,8 +14,8 @@
         :disabled="disabled"
         v-model="model"
         @change="change"
-        @focus="focus = true"
-        @blur="focus = false" />
+        @focus="focus=true"
+        @blur="focus=false" />
 
     </span>
     <span class="checkbox__label">
@@ -41,6 +41,7 @@ export default {
     return {
       selfModel: false,
       focus: false
+      // 焦点问题，要哭了。。。。
     }
   },
   computed: {
@@ -74,10 +75,16 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.fe-checkbox {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
 .checkbox__input {
   cursor: pointer;
   vertical-align: middle;
-  line-height: 1
+  line-height: 1;
+  display: inline-block;
 }
 .checkbox__input.is-focus .checkbox__inner {
   border-color: #409eff;
@@ -90,6 +97,9 @@ export default {
     transform: rotate(45deg) scaleY(1);
   }
 }
+.checkbox__input.is-checked+.checkbox__label {
+  color: #409eff;
+}
 .checkbox__inner {
   position: relative;
   display: inline-block;
@@ -98,7 +108,7 @@ export default {
   width: 14px;
   height: 14px;
   background: #fff;
-
+  outline: none;
   &:after {
     box-sizing: content-box;
     content: "";
@@ -118,9 +128,11 @@ export default {
 .checkbox__original {
   opacity: 0;
   position: absolute;
+  outline: 0;
   margin: 0;
   width: 0;
   height: 0;
+  z-index: -1
 }
 .checkbox__label {
   display: inline-block;
