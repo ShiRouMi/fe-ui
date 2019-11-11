@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <checkbox v-model="cck" @on-change="cckEvent">hello</checkbox>
-    <!-- <input type="checkbox" value="abc" :checked="isChecked" @click="iptClick" /> -->
+    <input type="checkbox" value="abc" :checked="isChecked" @click="iptClick" />
     <!-- <ell-checkbox v-model="elVal" @change="elEvent">备选</ell-checkbox> -->
   </div>
 </template>
